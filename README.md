@@ -10,8 +10,9 @@ This project uses:
 
 ### Steps to get started
 1. Download the project into your web server's directory
-2. Create a `db_connect.php` file in the root of the project folder
-3. Paste the following code into the file and enter you MySQL credentials:
+2. Create a MySQL database and import the `setup.sql` script
+3. Create a `db_connect.php` file in the root of the project folder
+4. Paste the following code into the file and enter your MySQL credentials:
 ```
     <?php
 
@@ -22,5 +23,4 @@ This project uses:
 
     ?>
 ```
-4. Create a MySQL database and import the `setup.sql` script
 5. Navigate to the url (ex: http://localhost/activity-log/) and start logging!
