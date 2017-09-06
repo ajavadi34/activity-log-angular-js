@@ -1,0 +1,9 @@
+.table-hover tbody tr:hover td {
+    background-color: #cce6ff;
+}
+
+.add-new-record {
+    padding: 5px;
+    cursor: pointer;
+    color: #2e6da4;
+}

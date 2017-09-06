@@ -1,0 +1,52 @@
+<!Doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Grid</title>
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link href="Styles/grid.css" rel="stylesheet">
+</head>
+<body ng-app="taskApp">
+
+<div class="container">
+
+    <h1>Logs</h1>
+
+    <log-grid></log-grid>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="Scripts/grid.js"></script>
+<script type="text/javascript">
+    /* Tools */
+    var pageTools = {
+        parseDate: function(input) {
+            //Parse a date in yyyy-mm-dd format
+            var parts = input.match(/(\d+)/g);
+            // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
+            return new Date(parts[0], parts[1]-1, parts[2]); // months are 0-based
+        },
+
+        getFormattedDate: function(date) {
+            //date param must be a date object
+            var year = date.getFullYear();
+            //2 digit month
+            var month = (1 + date.getMonth()).toString();
+            month = month.length > 1 ? month : '0' + month;
+            //2 digit day
+            var day = date.getDate().toString();
+            day = day.length > 1 ? day : '0' + day;
+            //Returns format matching jQuery datepicker
+            return month + '/' + day + '/' + year;
+        }
+    };
+</script>
+</body>
+</html>

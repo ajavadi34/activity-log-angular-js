@@ -1,0 +1,81 @@
+<div id="grid-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Log #<span ng-bind="grid.record.Id"></span></h4>
+            </div>
+            <div class="modal-body">
+                <label for="modal-type" ng-show="grid.isInsert()">Type</label>
+                <select id="modal-type" class="form-control" ng-show="grid.isInsert()" ng-model="grid.record.Type">
+                    <option value="" disabled>Select type...</option>
+                    <option ng-repeat="t in grid.data.types" value="{{ t.TypeId }}">{{ t.Name }}</option>
+                </select>
+
+                <label for="modal-title">Title</label>
+                <input id="modal-title" type="text" class="form-control" ng-model="grid.record.Title">
+
+                <label for="modal-desc">Description</label>
+                <textarea id="modal-desc" class="form-control" ng-model="grid.record.Description"></textarea>
+
+                <label for="modal-date">Date</label>
+                <input id="modal-date" type="text" class="form-control datepicker" ng-model="grid.record.Date">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="grid.cancel()">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="grid.saveLog()">Save</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="row">
+    <div class="col-sm-4">
+        <a title="Add new log" ng-click="grid.showBlankModal()"><i class="fa fa-2x fa-plus-square-o add-new-record" aria-hidden="true"></i></a>
+    </div>
+    <div class="col-sm-4 col-sm-offset-4 form-inline">
+        <span>Filter By:</span>
+        <select class="form-control">
+            <option ng-click="grid.filterData()" value="none">None</option>
+            <option ng-repeat="t in grid.data.types" ng-click="grid.filterData(t.TypeId)">{{ t.Name }}</option>
+        </select>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <tr>
+            <th ng-repeat="header in grid.data.headers">
+                {{ header }}
+            </th>
+        </tr>
+        <tr ng-repeat="row in grid.data.rows" ng-click="grid.editLog(row)">
+            <td>
+                {{ row.RowCount }}
+            </td>
+            <td>
+                {{ row.Type }}
+            </td>
+            <td>
+                {{ row.Title }}
+            </td>
+            <td>
+                {{ row.Description }}
+            </td>
+            <td>
+                {{ row.Date }}
+            </td>
+            <td>
+                <button type="button" title="Delete log" class="btn btn-primary" ng-click="grid.deleteLog(row.Id); $event.stopPropagation();">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div>{{ grid.data.exec_time }} seconds</div>
+
+<script type="text/javascript">
+    (function(){
+        $('.datepicker').datepicker();
+    })();
+</script>
