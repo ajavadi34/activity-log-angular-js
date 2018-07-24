@@ -12,7 +12,7 @@
                 //Initializes empty array to prevent errors
                 grid.headers = [];
                 grid.rows = [];
-                grid.apiUrl = '/my_sites/activity-log/Controller/TaskController.php';
+                grid.apiUrl = (window.location.hostname === 'localhost' ? '/activity-log-angular-js' : '') + '/Controller/TaskController.php';
                 grid.filter = null;
 
                 grid.loadData = function(){
