@@ -1,18 +1,21 @@
-# Activity Log CRUD Grid
+# activity log angularJS
 
-This project is a simple responsive CRUD grid meant to be an activity logger.
+This project is a simple activity logger displayed in a grid.
 
 This project uses:
-* Bootstrap
-* AngularJS
+
+* Bootstrap 3
+* Angular 1
 * PHP
 * MySQL
 
-### Steps to get started
-1. Download the project into your web server's directory
-2. Create a MySQL database and import the `setup.sql` script
-3. Create a `db_connect.php` file in the root of the project folder
-4. Paste the following code into the file and enter your MySQL credentials:
+
+### QUICK START
+1. Clone repo *activity-log-angular-js*
+2. Clone repo *activity-log-service* into a web server directory that supports php
+3. Create a MySQL database and import the *setup.sql* script
+4. Create a *db_connect.php* file in the root of the project folder
+5. Paste the following code into the file and enter your MySQL credentials:
 ```
     <?php
 
@@ -23,4 +26,6 @@ This project uses:
 
     ?>
 ```
-5. Navigate to the url (ex: http://localhost/activity-log/) and start logging!
+6. Navigate to the url (ex: http://localhost/index.html) and start logging
+
+Enjoy!
