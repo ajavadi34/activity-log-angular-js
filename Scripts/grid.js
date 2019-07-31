@@ -12,13 +12,14 @@
                 //Initializes empty array to prevent errors
                 grid.headers = [];
                 grid.rows = [];
-                grid.apiUrl = (window.location.hostname === 'localhost' ? '/activity-log-angular-js' : '') + '/Controller/TaskController.php';
-                grid.filter = null;
+                grid.apiUrl = 'http://activitylogdemo.ajdrafts.com/Controller/TaskController.php'; // must enable cors for localhost development
+                grid.filter = 0;
 
                 grid.loadData = function(){
                     var data = {
                         params: { 
-                            Type: grid.filter
+                            Type: grid.filter,
+                            PageNumber: 1 // todo add paging support
                         }                        
                     };
                     
