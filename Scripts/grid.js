@@ -12,7 +12,7 @@
                 //Initializes empty array to prevent errors
                 grid.headers = [];
                 grid.rows = [];
-                grid.apiUrl = 'http://activitylogdemo.ajdrafts.com/Controller/TaskController.php'; // must enable cors for localhost development
+                grid.apiUrl = (window.location.hostname === 'localhost' ? '/activity-log-service' : '') + '/Controller/TaskController.php';
                 grid.filter = 0;
 
                 grid.loadData = function(){
